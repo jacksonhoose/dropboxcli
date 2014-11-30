@@ -112,5 +112,5 @@ class DropBoxCli():
 if __name__ == '__main__':
 	arguments = docopt(__doc__, version='DropBoxer 1.0')
 	cli = DropBoxCli(arguments['--config'])
-	# cli.send_files(arguments['<file>'])
-
+	if arguments['<file>']:
+		cli.send_files(arguments['<file>'])
