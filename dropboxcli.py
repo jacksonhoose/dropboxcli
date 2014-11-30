@@ -34,12 +34,10 @@ class DropBoxCli():
 		try:
 			f = open(self.configPath).read()
 			configJSON = json.loads(f)
-			
 			if configJSON:
 				return configJSON
 			else:
 				return False
-
 		except IOError as ex:
 			sys.stdout.write('There was a problem reading your config file...')
 			return False
@@ -79,9 +77,7 @@ class DropBoxCli():
 		}
 		
 		config = json.dumps(config)
-
 		self.writeConfig(config)
-
 		return
 
 	def startOAuth(self):
@@ -89,12 +85,8 @@ class DropBoxCli():
 			config = self.createConfigFile()
 		else:
 			config = self.readConfigFile()
-
 		''' get a client from config '''
 		self.client = dropbox.client.DropboxClient(config['access_token'])
-
-
-
 
 	def send_files(self, files):
 		if isinstance(files, list):
